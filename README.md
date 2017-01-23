@@ -44,7 +44,7 @@ The PokeMiner included has been updated to add a last_modified to the sightings.
     * *numba* provides better performance through JIT compilation
 5. Run `python3 scripts/create_db.py` from the command line
 
-6. Using HeidiSQL or another SQL Broswer/Editor connect to your database and run the /SQL Files/db_update.sql
+6. Using an SQL Broswer/Editor connect to your database and run the /SQL Files/`Database_Type`.sql
 
 7. Run `python3 scan.py` from your PokeMiner directory
 

@@ -46,7 +46,7 @@ function countMarkers (map) { // eslint-disable-line no-unused-vars
       if (pkmnCount[i] && pkmnCount[i].Count > 0) {
         pokeCounts.push(
           [
-            '<img src=\'https://pokepro.co/wp-content/themes/html5blank-stable/static/icons/' + pkmnCount[i].ID + '.png\' />',
+            '<img src=\'static/icons/' + pkmnCount[i].ID + '.png\' />',
             '<a href=\'http://www.pokemon.com/us/pokedex/' + pkmnCount[i].ID + '\' target=\'_blank\' title=\'View in Pokédex\' style=\'color: black;\'>' + pkmnCount[i].Name + '</a>',
             pkmnCount[i].Count,
             (Math.round(pkmnCount[i].Count * 100 / pkmnTotal * 10) / 10) + '%'
@@ -91,13 +91,13 @@ function countMarkers (map) { // eslint-disable-line no-unused-vars
     for (i = 0; i < arenaCount.length; i++) {
       if (arenaCount[i] > 0) {
         if (i === 1) {
-          arenaListString += '<tr><td><img src="https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/Mystic.png" /></td><td>' + 'Blue' + '</td><td>' + arenaCount[i] + '</td><td>' + Math.round(arenaCount[i] * 100 / arenaTotal * 10) / 10 + '%</td></tr>'
+          arenaListString += '<tr><td><img src="static/forts/Mystic.png" /></td><td>' + 'Blue' + '</td><td>' + arenaCount[i] + '</td><td>' + Math.round(arenaCount[i] * 100 / arenaTotal * 10) / 10 + '%</td></tr>'
         } else if (i === 2) {
-          arenaListString += '<tr><td><img src="https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/Valor.png" /></td><td>' + 'Red' + '</td><td>' + arenaCount[i] + '</td><td>' + Math.round(arenaCount[i] * 100 / arenaTotal * 10) / 10 + '%</td></tr>'
+          arenaListString += '<tr><td><img src="static/forts/Valor.png" /></td><td>' + 'Red' + '</td><td>' + arenaCount[i] + '</td><td>' + Math.round(arenaCount[i] * 100 / arenaTotal * 10) / 10 + '%</td></tr>'
         } else if (i === 3) {
-          arenaListString += '<tr><td><img src="https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/Instinct.png" /></td><td>' + 'Yellow' + '</td><td>' + arenaCount[i] + '</td><td>' + Math.round(arenaCount[i] * 100 / arenaTotal * 10) / 10 + '%</td></tr>'
+          arenaListString += '<tr><td><img src="static/forts/Instinct.png" /></td><td>' + 'Yellow' + '</td><td>' + arenaCount[i] + '</td><td>' + Math.round(arenaCount[i] * 100 / arenaTotal * 10) / 10 + '%</td></tr>'
         } else {
-          arenaListString += '<tr><td><img src="https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/Uncontested.png" /></td><td>' + 'Clear' + '</td><td>' + arenaCount[i] + '</td><td>' + Math.round(arenaCount[i] * 100 / arenaTotal * 10) / 10 + '%</td></tr>'
+          arenaListString += '<tr><td><img src="static/forts/Uncontested.png" /></td><td>' + 'Clear' + '</td><td>' + arenaCount[i] + '</td><td>' + Math.round(arenaCount[i] * 100 / arenaTotal * 10) / 10 + '%</td></tr>'
         }
       }
     }
@@ -133,9 +133,9 @@ function countMarkers (map) { // eslint-disable-line no-unused-vars
     for (i = 0; i < pokestopCount.length; i++) {
       if (pokestopCount[i] > 0) {
         if (i === 0) {
-          pokestopListString += '<tr><td><img src="https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/Pstop.png" /></td><td>' + 'Not Lured' + '</td><td>' + pokestopCount[i] + '</td><td>' + Math.round(pokestopCount[i] * 100 / pokestopTotal * 10) / 10 + '%</td></tr>'
+          pokestopListString += '<tr><td><img src="static/forts/Pstop.png" /></td><td>' + 'Not Lured' + '</td><td>' + pokestopCount[i] + '</td><td>' + Math.round(pokestopCount[i] * 100 / pokestopTotal * 10) / 10 + '%</td></tr>'
         } else if (i === 1) {
-          pokestopListString += '<tr><td><img src="https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/PstopLured.png" /></td><td>' + 'Lured' + '</td><td>' + pokestopCount[i] + '</td><td>' + Math.round(pokestopCount[i] * 100 / pokestopTotal * 10) / 10 + '%</td></tr>'
+          pokestopListString += '<tr><td><img src="static/forts/PstopLured.png" /></td><td>' + 'Lured' + '</td><td>' + pokestopCount[i] + '</td><td>' + Math.round(pokestopCount[i] * 100 / pokestopTotal * 10) / 10 + '%</td></tr>'
         }
       }
     }

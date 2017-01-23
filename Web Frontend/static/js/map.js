@@ -61,7 +61,7 @@ var lastUpdateTime
 
 var gymTypes = ['Uncontested', 'Mystic', 'Valor', 'Instinct']
 var gymPrestige = [2000, 4000, 8000, 12000, 16000, 20000, 30000, 40000, 50000]
-var audio = new Audio('https://pokepro.co/wp-content/themes/html5blank-stable/static/sounds/ding.mp3')
+var audio = new Audio('static/sounds/ding.mp3')
 
 //
 // Functions
@@ -428,7 +428,7 @@ function gymLabel (teamName, teamId, gymPoints, latitude, longitude, lastScanned
         <center>
           <div>
             <b style='color:rgba(${gymColor[teamId]})'>${teamName}</b><br>
-            <img height='70px' style='padding: 5px;' src='https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/${teamName}_large.png'>
+            <img height='70px' style='padding: 5px;' src='static/forts/${teamName}_large.png'>
           </div>
           ${nameStr}
           <div>
@@ -450,7 +450,7 @@ function gymLabel (teamName, teamId, gymPoints, latitude, longitude, lastScanned
           </div>
           <div>
             <b style='color:rgba(${gymColor[teamId]})'>Team ${teamName}</b><br>
-            <img height='70px' style='padding: 5px;' src='https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/${teamName}_large.png'>
+            <img height='70px' style='padding: 5px;' src='static/forts/${teamName}_large.png'>
           </div>
           <div>
             ${nameStr}
@@ -609,7 +609,7 @@ function customizePokemonMarker (marker, item, skipNotification) {
       if (Store.get('playSound')) {
         audio.play()
       }
-      sendNotification('A wild ' + item['pokemon_name'] + ' appeared!', 'Click to load map', 'https://pokepro.co/wp-content/themes/html5blank-stable/static/icons/' + item['pokemon_id'] + '.png', item['latitude'], item['longitude'])
+      sendNotification('A wild ' + item['pokemon_name'] + ' appeared!', 'Click to load map', 'static/icons/' + item['pokemon_id'] + '.png', item['latitude'], item['longitude'])
     }
     if (marker.animationDisabled !== true) {
       marker.setAnimation(google.maps.Animation.BOUNCE)
@@ -623,7 +623,7 @@ function customizePokemonMarker (marker, item, skipNotification) {
         if (Store.get('playSound')) {
           audio.play()
         }
-        sendNotification('A ' + perfection.toFixed(1) + '% perfect ' + item['pokemon_name'] + ' appeared!', 'Click to load map', 'https://pokepro.co/wp-content/themes/html5blank-stable/static/icons/' + item['pokemon_id'] + '.png', item['latitude'], item['longitude'])
+        sendNotification('A ' + perfection.toFixed(1) + '% perfect ' + item['pokemon_name'] + ' appeared!', 'Click to load map', 'static/icons/' + item['pokemon_id'] + '.png', item['latitude'], item['longitude'])
       }
       if (marker.animationDisabled !== true) {
         marker.setAnimation(google.maps.Animation.BOUNCE)
@@ -641,7 +641,7 @@ function setupGymMarker (item) {
       lng: item['longitude']
     },
     map: map,
-    icon: {url: 'https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/' + Store.get('gymMarkerStyle') + '/' + gymTypes[item['team_id']] + (item['team_id'] !== 0 ? '_' + getGymLevel(item['gym_points']) : '') + '.png', scaledSize: new google.maps.Size(48, 48)}
+    icon: {url: 'static/forts/' + Store.get('gymMarkerStyle') + '/' + gymTypes[item['team_id']] + (item['team_id'] !== 0 ? '_' + getGymLevel(item['gym_points']) : '') + '.png', scaledSize: new google.maps.Size(48, 48)}
   })
 
   if (!marker.rangeCircle && isRangeActive(map)) {
@@ -686,13 +686,13 @@ function setupGymMarker (item) {
 }
 
 function updateGymMarker (item, marker) {
-  marker.setIcon({url: 'https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/' + Store.get('gymMarkerStyle') + '/' + gymTypes[item['team_id']] + (item['team_id'] !== 0 ? '_' + getGymLevel(item['gym_points']) : '') + '.png', scaledSize: new google.maps.Size(48, 48)})
+  marker.setIcon({url: 'static/forts/' + Store.get('gymMarkerStyle') + '/' + gymTypes[item['team_id']] + (item['team_id'] !== 0 ? '_' + getGymLevel(item['gym_points']) : '') + '.png', scaledSize: new google.maps.Size(48, 48)})
   marker.infoWindow.setContent(gymLabel(gymTypes[item['team_id']], item['team_id'], item['gym_points'], item['latitude'], item['longitude'], item['last_scanned'], item['name'], item['pokemon'], item['gym_id']))
   return marker
 }
 function updateGymIcons () {
   $.each(mapData.gyms, function (key, value) {
-    mapData.gyms[key]['marker'].setIcon({url: 'https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/' + Store.get('gymMarkerStyle') + '/' + gymTypes[mapData.gyms[key]['team_id']] + (mapData.gyms[key]['team_id'] !== 0 ? '_' + getGymLevel(mapData.gyms[key]['gym_points']) : '') + '.png', scaledSize: new google.maps.Size(48, 48)})
+    mapData.gyms[key]['marker'].setIcon({url: 'static/forts/' + Store.get('gymMarkerStyle') + '/' + gymTypes[mapData.gyms[key]['team_id']] + (mapData.gyms[key]['team_id'] !== 0 ? '_' + getGymLevel(mapData.gyms[key]['gym_points']) : '') + '.png', scaledSize: new google.maps.Size(48, 48)})
   })
 }
 
@@ -705,7 +705,7 @@ function setupPokestopMarker (item) {
     },
     map: map,
     zIndex: 2,
-    icon: 'https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/' + imagename + '.png'
+    icon: 'static/forts/' + imagename + '.png'
   })
 
   if (!marker.rangeCircle && isRangeActive(map)) {
@@ -778,9 +778,9 @@ function getColorBySpawnTime (value) {
 function changeSpawnIcon (color, zoom) {
   var urlColor = ''
   if (color === 275) {
-    urlColor = './https://pokepro.co/wp-content/themes/html5blank-stable/static/icons/hsl-275-light.png'
+    urlColor = './static/icons/hsl-275-light.png'
   } else {
-    urlColor = './https://pokepro.co/wp-content/themes/html5blank-stable/static/icons/hsl-' + color + '.png'
+    urlColor = './static/icons/hsl-' + color + '.png'
   }
   var zoomScale = 1.6 // adjust this value to change the size of the spawnpoint icons
   var minimumSize = 1
@@ -1335,7 +1335,7 @@ function createMyLocationButton () {
   locationIcon.style.margin = '5px'
   locationIcon.style.width = '18px'
   locationIcon.style.height = '18px'
-  locationIcon.style.backgroundImage = 'url(https://pokepro.co/wp-content/themes/html5blank-stable/static/mylocation-sprite-1x.png)'
+  locationIcon.style.backgroundImage = 'url(static/mylocation-sprite-1x.png)'
   locationIcon.style.backgroundSize = '180px 18px'
   locationIcon.style.backgroundPosition = '0px 0px'
   locationIcon.style.backgroundRepeat = 'no-repeat'
@@ -1407,7 +1407,7 @@ function centerMap (lat, lng, zoom) {
 function i8ln (word) {
   if ($.isEmptyObject(i8lnDictionary) && language !== 'en' && languageLookups < languageLookupThreshold) {
     $.ajax({
-      url: 'https://pokepro.co/wp-content/themes/html5blank-stable/static/dist/locales/' + language + '.min.json',
+      url: 'static/dist/locales/' + language + '.min.json',
       dataType: 'json',
       async: false,
       success: function (data) {
@@ -1524,7 +1524,7 @@ function showGymDetails (id) { // eslint-disable-line no-unused-vars
         <div>
           <b class="team-${result.team_id}-text">${result.name || ''}</b>
         </div>
-        <img height="100px" style="padding: 5px;" src="https://pokepro.co/wp-content/themes/html5blank-stable/static/forts/${gymTypes[result.team_id]}_large.png">
+        <img height="100px" style="padding: 5px;" src="static/forts/${gymTypes[result.team_id]}_large.png">
         <div class="prestige-bar team-${result.team_id}">
           <div class="prestige team-${result.team_id}" style="width: ${prestigePercentage}%">
           </div>
@@ -1685,7 +1685,7 @@ $(function () {
   $selectStyle = $('#map-style')
 
   // Load Stylenames, translate entries, and populate lists
-  $.getJSON('https://pokepro.co/wp-content/themes/html5blank-stable/static/dist/data/mapstyle.min.json').done(function (data) {
+  $.getJSON('static/dist/data/mapstyle.min.json').done(function (data) {
     var styleList = []
 
     $.each(data, function (key, value) {
@@ -1773,7 +1773,7 @@ $(function () {
   $selectSearchIconMarker = $('#iconmarker-style')
   $selectLocationIconMarker = $('#locationmarker-style')
 
-  $.getJSON('https://pokepro.co/wp-content/themes/html5blank-stable/static/dist/data/searchmarkerstyle.min.json').done(function (data) {
+  $.getJSON('static/dist/data/searchmarkerstyle.min.json').done(function (data) {
     searchMarkerStyles = data
     var searchMarkerStyleList = []
 
@@ -1844,7 +1844,7 @@ $(function () {
     centerMapOnLocation()
   }
 
-  $.getJSON('https://pokepro.co/wp-content/themes/html5blank-stable/static/dist/data/moves.min.json').done(function (data) {
+  $.getJSON('static/dist/data/moves.min.json').done(function (data) {
     moves = data
   })
 
@@ -1855,7 +1855,7 @@ $(function () {
   var numberOfPokemon = 151
 
   // Load pokemon names and populate lists
-  $.getJSON('https://pokepro.co/wp-content/themes/html5blank-stable/static/dist/data/pokemon.min.json').done(function (data) {
+  $.getJSON('static/dist/data/pokemon.min.json').done(function (data) {
     var pokeList = []
 
     $.each(data, function (key, value) {

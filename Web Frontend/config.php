@@ -11,7 +11,7 @@ $dbUser = "DATABASE_USERNAME";                          // MySQL username
 $dbPass = "DATABASE_PASSWORD";                          // MySQL password
 
 // Webserver settings
-$title = "Pokémon Go Map";                              // Title to display in title bar
+$title = "Pokemon Go Map";                              // Title to display in title bar
 $locale = "en";                                         // Display language
 // NOTE: For aesthetics only - I didn't implement code to change locale
 //       outside of the lang specifier in the HTML. If you'd like to do so,

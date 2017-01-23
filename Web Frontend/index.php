@@ -1,5 +1,5 @@
 <?php
-include('config.inc.php');
+include('config.php');
 ?>
 
 <!DOCTYPE html>

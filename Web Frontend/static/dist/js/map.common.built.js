@@ -797,7 +797,7 @@ var pokemonSprites = {
     iconHeight: 30,
     spriteWidth: 360,
     spriteHeight: 390,
-    filename: 'https://pokepro.co/wp-content/themes/html5blank-stable/static/icons-sprite.png',
+    filename: 'static/icons-sprite.png',
     name: 'Normal'
   },
   highres: {
@@ -806,7 +806,7 @@ var pokemonSprites = {
     iconHeight: 65,
     spriteWidth: 455,
     spriteHeight: 1430,
-    filename: 'https://pokepro.co/wp-content/themes/html5blank-stable/static/icons-large-sprite.png',
+    filename: 'static/icons-large-sprite.png',
     name: 'High-Res'
   },
   shuffle: {
@@ -815,7 +815,7 @@ var pokemonSprites = {
     iconHeight: 65,
     spriteWidth: 455,
     spriteHeight: 1430,
-    filename: 'https://pokepro.co/wp-content/themes/html5blank-stable/static/icons-shuffle-sprite.png',
+    filename: 'static/icons-shuffle-sprite.png',
     name: 'Shuffle'
   }
 };

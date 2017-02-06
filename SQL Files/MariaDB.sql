@@ -1,13 +1,7 @@
 ALTER TABLE sightings
 ADD last_modified int(11) DEFAULT NULL
 
-CREATE TABLE IF NOT EXISTS pokedex (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(40) DEFAULT NULL,
-  `push` varchar(1) NOT NULL DEFAULT '0',
-  `rarity` varchar(50) DEFAULT 'Common',
-  PRIMARY KEY (`id`)
-)  ;
+CREATE TABLE IF NOT EXISTS pokedex (  `id` int NOT NULL AUTO_INCREMENT,  `identifier` varchar(40) DEFAULT NULL,  `push` varchar(1) NOT NULL DEFAULT '0',  `rarity` varchar(50) DEFAULT 'Common',  PRIMARY KEY (`id`))  ;
 
 -- Dumping data for table pokeminer.pokedex: ~748 rows (approximately)
 DELETE FROM `pokedex`;
